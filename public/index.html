@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="description" content="Push-to-Talk system for dispatch and drivers">
+  <title>PTT System - Dispatch & Drivers</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- iOS PWA Support -->
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="PTT">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen active">
+    <div class="container">
+      <div class="logo">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="35" stroke="currentColor" stroke-width="3"/>
+          <path d="M40 25 L40 35 M40 55 L40 45" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="40" cy="40" r="5" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1>PTT Dispatch System</h1>
+      <p class="subtitle">Push-to-Talk for Drivers & Dispatch</p>
+
+      <form id="loginForm" class="auth-form">
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="Enter your handle"
+          autocomplete="off"
+          required
+          minlength="2"
+        >
+        <button type="submit" class="btn btn-primary">
+          <span>Connect</span>
+        </button>
+      </form>
+
+      <div id="loginError" class="error-message"></div>
+
+      <div class="info-text">
+        <p>New user? Just enter a handle to create your account.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App Screen -->
+  <div id="appScreen" class="screen">
+    <header class="app-header">
+      <div class="header-left">
+        <div class="user-badge">
+          <div class="status-indicator online"></div>
+          <span id="currentUsername" class="username"></span>
+        </div>
+      </div>
+      <div class="header-right">
+        <button id="statusBtn" class="icon-btn" title="Change Status">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/>
+          </svg>
+        </button>
+        <button id="disconnectBtn" class="icon-btn" title="Disconnect">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7 14l5-5-5-5m5 5H9"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <!-- Connection Status -->
+      <div id="connectionStatus" class="connection-status">
+        <div class="status-dot"></div>
+        <span id="connectionText">Connecting...</span>
+      </div>
+
+      <!-- Audio Status -->
+      <div id="audioStatus" class="audio-status ready">
+        Initializing audio...
+      </div>
+
+      <!-- Online Users List -->
+      <section class="users-section">
+        <h2>Online Users <span id="userCount" class="badge">0</span></h2>
+        <div id="usersList" class="users-list">
+          <!-- Users will be populated here -->
+        </div>
+      </section>
+
+      <!-- PTT Button -->
+      <div class="ptt-container">
+        <div class="ptt-instructions">
+          <p>Hold to talk</p>
+        </div>
+        <button id="pttButton" class="ptt-button" disabled>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="30" r="28" fill="currentColor" opacity="0.2"/>
+            <circle cx="30" cy="30" r="24" stroke="currentColor" stroke-width="2"/>
+            <path d="M30 10 L30 20 M30 40 L30 50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="30" cy="30" r="8" fill="currentColor"/>
+          </svg>
+          <span class="ptt-text">PUSH TO TALK</span>
+        </button>
+        <div class="ptt-hint">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0a1 1 0 011 1v5.268l4.562-2.634a1 1 0 011.366.366 1 1 0 01-.366 1.366L10 8l4.562 2.634a1 1 0 01.366 1.366 1 1 0 01-1.366.366L9 9.732V15a1 1 0 01-2 0V9.732l-4.562 2.634a1 1 0 01-1.366-.366 1 1 0 01.366-1.366L6 8 1.438 5.366a1 1 0 01-.366-1.366 1 1 0 011.366-.366L7 6.268V1a1 1 0 011-1z"/>
+          </svg>
+          Press & hold or tap & hold
+        </div>
+      </div>
+    </main>
+
+    <!-- Status Change Modal -->
+    <div id="statusModal" class="modal">
+      <div class="modal-content">
+        <h3>Change Status</h3>
+        <div class="status-options">
+          <button class="status-option" data-status="online">
+            <div class="status-indicator online"></div>
+            <span>Online</span>
+          </button>
+          <button class="status-option" data-status="busy">
+            <div class="status-indicator busy"></div>
+            <span>Busy</span>
+          </button>
+          <button class="status-option" data-status="away">
+            <div class="status-indicator away"></div>
+            <span>Away</span>
+          </button>
+        </div>
+        <button id="closeStatusModal" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service Worker registered:', registration.scope);
+          })
+          .catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>
